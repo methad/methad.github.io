@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang='en' class=''>
+
+<head>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/43783da02a.js" crossorigin="anonymous"></script>
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <meta charset='UTF-8'>
+  <title>METHAD</title>
+  <link rel="icon" type="image/x-icon" href="imgs/favicon.ico">
+  <style class="INLINE_PEN_STYLESHEET_ID">
+    @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,700");
+@import url("https://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css");
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html body div
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font: 16px/1 'Open Sans', sans-serif;
+  color: #555;
+  background: #ffffff;
+}
+
+body {
+  padding: 50px;
+}
+
+.accordion{
+	transform: translateZ(0);
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  background: #fff;
+}
+
+.responsive-iframe {
+  position: absolute;
+  top: 31%;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 70%;
+}
+
+.accordion > .accordion-toggle{
+	position: absolute;
+	opacity: 0;
+	display: none;
+}
+
+.jumbotron {
+  padding: 3rem 2rem
+}
+
+body {
+  line-height: 1.4;
+}
+
+.accordion > label{
+	position: relative;
+	display: block;
+	height: 50px;
+	line-height: 50px;
+	padding: 0 20px;
+	font-size: medium;
+	font-weight: 700;
+	border: 1px solid #ddd;
+	background: #fff;
+	cursor: pointer;
+}
+
+svg > g > g.google-visualization-tooltip { pointer-events: none }
+
+.accordion > label:after {
+  content: '\f078';
+  position: absolute;
+  top: 0px;
+  right: 20px;
+  font-family: fontawesome;
+  transform: rotate(90deg);
+  transition: .3s transform;
+}
+
+.accordion > section{
+	height: 0;
+	transition: .3s all;
+	overflow: hidden;
+}
+
+.accordion > .accordion-toggle:checked ~ label:after{
+ transform: rotate(0deg);
+}
+
+.accordion > .accordion-toggle:checked ~ section{
+  height: 700px;
+}
+
+.accordion > section p {
+  margin: 15px 0;
+  padding: 0 20px;
+  font-size: medium;
+  line-height: 1.5;
+}
+
+.row > .column {
+  padding: 0 8px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.column {
+  float: left;
+  width: 20%;
+}
+
+#myImg {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#myImg:hover {opacity: 0.7;}
+
+/* The Modal (background) */
+.modal-gallery {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content-gallery {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  width: 90%;
+  max-width: 1200px;
+}
+
+
+/* Caption of Modal Image (Image Text) - Same Width as the Image */
+#caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px;
+}
+/* Modal Content (Image) */
+.modal-content-im {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+
+.modal-content-im, #caption {
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+  from {transform:scale(0)}
+  to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #999;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.mySlides {
+  display: none;
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+img {
+  margin-bottom: -4px;
+}
+
+.demo {
+  opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+
+img.hover-shadow {
+  transition: 0.3s;
+}
+
+.hover-shadow:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.btn.btn-floating.btn-sm {
+  padding: 0em;
+}
+
+.btn.btn-floating.btn-sm:hover {
+  color: #005293;
+}
+
+a:link {
+  color: #6085E4;
+}
+
+/* visited link */
+a:visited {
+  color: #005293;
+}
+
+/* mouse over link */
+a:hover {
+  color: #005293;
+}
+
+/* selected link */
+a:active {
+  color: #005293;
+}
+
+/* The Close Button */
+.closeIm {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.closeIm:hover,
+.closeIm:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+@media only screen and (max-width: 700px){
+  .modal-content-im {
+    width: 100%;
+  }
+}
+
+.w3-left, .w3-right, .w3-badge {cursor:pointer}
+.w3-badge {height:13px;width:13px;padding:0}
+
+  </style>
+
+  
+<script src="https://cpwebassets.codepen.io/assets/editor/iframe/iframeConsoleRunner-d0f3648046d2aaca07bd0037b9e061a26c74a8a999b75672ad6a638cca641472.js"></script>
+<script src="https://cpwebassets.codepen.io/assets/editor/iframe/iframeRefreshCSS-4793b73c6332f7f14a9b6bba5d5e62748e9d1bd0b5c52d7af6376f3d1c625d7e.js"></script>
+<script src="https://cpwebassets.codepen.io/assets/editor/iframe/iframeRuntimeErrors-4f205f2c14e769b448bcf477de2938c681660d5038bc464e3700256713ebe261.js"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+</head>
+
+<body>
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1>METHAD – towards a Medical ETHical ADvisor</h1>
+        <h4>for moral decision-making in the health-care sector</h4>
+        <p class="lead"><a href="https://www.chu.cam.ac.uk/fellows/lukas-meier-2/"  target="_blank">Lukas J. Meier</a><a href="https://orcid.org/0000-0002-3316-3928"  target="_blank"><img alt="ORCID logo" src="https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png" width="16" height="16" /></a><button type="button" class="btn btn-floating btn-sm" data-toggle="modal" data-target="#mailModal"><span
+          class="fa fa-envelope"></span></button>, <a href="https://www.ce.cit.tum.de/ldv/team/wissenschaftliche-mitarbeiter/alice-hein/"  target="_blank">Alice Hein</a><a href="https://orcid.org/0000-0002-9457-8131"  target="_blank"><img alt="ORCID logo" src="https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png" width="16" height="16" /></a>, <a href="https://www.ce.cit.tum.de/ldv/team/ordinarius/klaus-diepold/"  target="_blank">Klaus Diepold</a><a href="https://orcid.org/0000-0003-0439-7511"  target="_blank"><img alt="ORCID logo" src="https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png" width="16" height="16" /></a>, <a href="https://en.wikipedia.org/wiki/Alena_Buyx"  target="_blank">Alena Buyx</a> <a href="https://orcid.org/0000-0002-5726-7633"  target="_blank"><img alt="ORCID logo" src="https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png" width="16" height="16" /></a></p>
+  <div class="modal fade" id="mailModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+       aria-hidden="true">
+      <div class="modal-dialog" role="document">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Contact</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+              <div class="modal-body">
+                ljm204@cam.ac.uk
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+          </div>
+      </div>
+  </div>
+        <hr class="my-4">
+        <p style="text-align: justify;" >Can medical ethics be made computable? Artificial intelligence (AI) already helps health-care staff with a number of tasks. Ethical decision-making, however, has not been handed over to machines. We, a joint team from the <a href="https://www.ce.cit.tum.de/ldv/startseite/"  target="_blank">Chair of Data Processing</a> and the <a href="https://get.med.tum.de/"  target="_blank">Institute of History and Ethics in Medicine</a> at the <a href="https://www.tum.de/en/"  target="_blank">Technical University of Munich</a>, developed METHAD: an algorithm for advising on a range of moral dilemma situations that occur in medical institutions. 
+          On this page, we explain why it is difficult to choose a moral theory as the <a href="#ethical basis">ethical basis</a> and which <a href="#model">machine-learning model</a> we used to set METHAD up. You can explore the algorithm’s <a href="#interface">user interface</a> or have a look at the composition of our <a href="#dataset">dataset</a> and METHAD’s <a href="#performance">performance metrics</a>. At the bottom of the page, you will see the algorithm in action: click on any <a href="#examples">example case</a> to find out how METHAD calculates a specific recommendation.</p>
+            
+          <p style="text-align: justify;" ><t></t>In our <a href="https://doi.org/10.1080/15265161.2022.2040647"  target="_blank" role="button" class="btn btn-floating btn-sm">
+          <span class="fa fa-book" target="_blank"></span></a> <a href="https://doi.org/10.1080/15265161.2022.2040647"  target="_blank"><b>initial article</b></a> in the American Journal of Bioethics, we explain what it takes to make medical ethics computable and introduce the algorithm’s general setup. In a <a href="https://doi.org/10.1109/FUZZ-IEEE55066.2022.9882615" role="button" class="btn btn-floating btn-sm" target="_blank">
+            <span class="fa fa-book" target="_blank"></span></a> <a href="https://doi.org/10.1109/FUZZ-IEEE55066.2022.9882615"  target="_blank"><b>follow-up paper</b></a>, we expand on the technical implementation details.
+
+          
+            Several authors (<a href="https://doi.org/10.1080/15265161.2022.2075052"  target="_blank">Barwise and Pickering</a>;
+              <a href="https://doi.org/10.1080/15265161.2022.2075055"  target="_blank">Biller-Andorno, Ferrario, and Gloeckler</a>;
+              <a href="https://doi.org/10.1080/15265161.2022.2075969"  target="_blank">Chambers</a>;
+              <a href="https://doi.org/10.1080/15265161.2022.2075054"  target="_blank">Char</a>;
+              <a href="https://doi.org/10.1080/15265161.2022.2075967"  target="_blank">Coin and Dubljević</a>;
+              <a href="https://doi.org/10.1080/15265161.2022.2075970"  target="_blank">DeMarco, Ford, and Rose</a>;
+              <a href="https://doi.org/10.1080/15265161.2022.2075968"  target="_blank">Demaree-Cotton, Earp, and Savulescu</a>;
+              <a href="https://doi.org/10.1080/15265161.2022.2075053"  target="_blank">Gundersen and Bærøe</a>;
+              <a href="https://doi.org/10.1080/15265161.2022.2075056"  target="_blank">Klugman and Gerke</a>;
+              <a href="https://doi.org/10.1080/15265161.2022.2087789"  target="_blank">Pilkington and Binkley</a>;
+              <a href="https://doi.org/10.1080/15265161.2022.2075051"  target="_blank">Rahimzadeh et al.</a>;
+              <a href="https://doi.org/10.1080/15265161.2022.2075971"  target="_blank">Sabatello</a>;
+              <a href="https://doi.org/10.1080/15265161.2022.2075050"  target="_blank">Sauerbrei, Hallowell, and Kerasidou</a>) have commented on the project. We reply to some of these articles in a <a href="https://doi.org/10.1080/15265161.2022.2127970"  target="_blank" role="button" class="btn btn-floating btn-sm">
+                <span class="fa fa-book" target="_blank"></span></a><a href="https://doi.org/10.1080/15265161.2022.2127970"  target="_blank"><b> paper</b></a> in which we also discuss the question as to whether applying machine intelligence to ethical decision-making is actually desirable. The project is also covered in an <a href="https://www.reliasmedia.com/articles/artificial-intelligence-soon-could-transform-the-field-of-clinical-ethics"  target="_blank">article</a> by Relias Media.</p>
+      </div>
+    </div>
+</div>
+
+<br>
+<a name="ethical basis"><h2>Ethical Basis</h2></a>
+<div style="width:100%;float: left;text-align: justify;margin-top: 1%;">
+  <img src="imgs/iStock-837105434.jpg" style="width:45%;float: left;padding-right: 1em;padding-bottom: 0.5em;">
+  <p>Like any ethical judgments taken by humans, ethical algorithmic decision-making must be rooted in a moral framework. When constructing an artificial moral agent, the primary question is therefore that of the underlying normative ethical theory. Roughly speaking, philosophers distinguish between three fundamental types of ethical theories: the teleological, the deontological, and the aretaic.</p>
+    <p>According to teleological approaches, the consequences of an act determine whether the latter is morally right. The act that produces the best overall result is the one to choose. The most prominent type of consequentialist ethics is utilitarianism.</p>
+    <p>Conversely, deontologists hold that actions are morally right when they conform to a particular norm or set of norms. Actions are therefore regarded as innately ethical or innately unethical independent of their respective consequences. Many variants of deontological moral systems have been proposed, of which the most influential one is the Kantian.</p>
+    <p>The third fundamental normative ethical theory is virtue ethics. According to this framework, moral actions are the result of an individual’s acquiring praiseworthy dispositions of character.</p>
+    <p>Given the three theories’ complementary strengths and weaknesses, even hundreds of years of philosophising have not resulted in one of them emerging as superior. Until recently, this problem pertained only to human action. However, our ability to construct autonomous agents now requires that we make a decision regarding which moral principle to implement. </p>
+    <p>In the domain of clinical ethics, it became clear early on that consultants could not afford on a daily basis to engage in lengthy debates about which fundamental moral theory ought to prevail. Less general approaches of greater practical applicability were developed – among them casuistry, narrative ethics, feminist ethics, and principlism.</p>
+    <p>We chose principlism as the basis of our advisory algorithm because it provides a set of decision factors common across case types which lends itself to being translated into machine-readable values. Tom Beauchamp and James Childress first proposed principlism in the 1979 edition of their <i>Principles of Biomedical Ethics</i>. Famously, their set of prima-facie principles comprises beneficence, non-maleficence, respect for patient autonomy, and justice. But how does one build an algorithm around these principles?</p>
+</div>
+<div style="clear:both;"></div>
+<br>
+<div style="width:100%;float: left;text-align: justify;margin-top: 1%;">
+<a name="model"><h2>Model and Training</h2></a>
+<br>
+ <img id="myImg" src="imgs/METHAD graphic.png" alt="Visualization of the METHAD model" style="width:45%;float: right;padding-left: 1em;padding-bottom: 0.5em;">
+  <p>As the technical solution for implementing Beauchamp and Childress’ prima-facie approach, we chose a type of machine-learning model known as <i>fuzzy cognitive maps</i> (FCMs). FCMs are machine-learning models that can simulate dynamic systems, such as human decision-making processes. The relevant components of the process are mapped onto a causal graph which consists of nodes that are linked by causal connections. Nodes represent the entities or concepts to be modelled. In our case, these are parameters of the respective medical case – for example, whether the patient has reached the age of majority – as well as higher-level concepts, such as the principle of beneficence.</p>
+    <p>The connections between nodes are weighted, which means that some factors can have a stronger influence on intermediate or output nodes than others. On the basis of the input values of a case and the connections between nodes, the FCM can simulate the causal interactions between the decision-relevant concepts over time. </p>
+    <p>At each simulation step, every node in the network aggregates all the values of the concepts by which it is influenced, weighted by its incoming causal connections. The node that represents the principle of autonomy, for example, aggregates a number of factors – such as whether the patient has decisional capacity. Each factor is weighted by the strength of the incoming connection between the factor and the autonomy node. Once a node has weighted and aggregated the values of all the nodes by which it is influenced, the resulting number is mapped to a value between 0 and 1 using an S-shaped activation function. Each node then passes its aggregated activation onto all the nodes that are influenced by it – again via weighted connections. The autonomy node may, for example, transmit its value to a node that represents whether to follow the patient’s treatment preference. This process is repeated over several time steps until the system stabilises. The algorithm then reports its recommendation regarding the intervention in question in an output node.</p>
+    <p>One can either manually specify the strength and the polarity of the connections between the nodes in an FCM or acquire them from input examples through various forms of machine learning. We chose a <i>genetic algorithm</i>, which is a machine-learning method inspired by evolutionary biology. Genetic algorithms start out from a pool of random guesses that are refined and improved over time. For each ‘generation’, the algorithm identifies the guess, that is, the set of FCM connection weights, that delivers the best results – namely, those that are closest to the solution provided by human ethicists. The guesses are used to breed a new and even better generation of solutions. At certain intervals, random mutations are introduced to add some variation to the solution pool. This process is repeated until a certain performance threshold is reached or until no further improvement is observed over a set number of generations.</p>
+</div>
+
+<div id="myModalIm" class="modal-gallery">
+  <span class="closeIm">&times;</span>
+  <img class="modal-content-im" id="img01">
+  <div id="caption"></div>
+</div>
+
+<div style="clear:both;"></div>
+<br>
+<div style="text-align: justify;margin-top: 1%;">
+<a name="interface"><h2>User Interface</h2></a>
+<br>
+<div class="row">
+  <div class="column">
+    <img src="imgs/intro_screen.png" style="width:100%;border: 4px solid #555;" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+  </div>
+  <div class="column">
+    <img src="imgs/patient_status.png" style="width:100%;border: 4px solid #555;" onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
+  </div>
+  <div class="column">
+    <img src="imgs/beneficence.png" style="width:100%;border: 4px solid #555;" onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
+  </div>
+  <div class="column">
+    <img src="imgs/non-maleficence.png" style="width:100%;border: 4px solid #555;" onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
+  </div>
+  <div class="column">
+    <img src="imgs/autonomy.png" style="width:100%;border: 4px solid #555;" onclick="openModal();currentSlide(5)" class="hover-shadow cursor">
+  </div>
+</div>
+
+<div id="myModal" class="modal-gallery">
+  <span class="close cursor" onclick="closeModal()">&times;</span>
+  <div class="modal-content-gallery">
+
+    <div class="mySlides">
+      <div class="numbertext">1 / 5</div>
+      <img src="imgs/intro_screen.png" style="width:100%">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">2 / 5</div>
+      <img src="imgs/patient_status.png" style="width:100%">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">3 / 5</div>
+      <img src="imgs/beneficence.png" style="width:100%">
+    </div>
+    
+    <div class="mySlides">
+      <div class="numbertext">4 / 5</div>
+      <img src="imgs/non-maleficence.png" style="width:100%">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">5 / 5</div>
+      <img src="imgs/autonomy.png" style="width:100%">
+    </div>
+    
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+  </div>
+</div>
+<br>
+<div style="width:100%;float: left;text-align: justify;margin-top: 1%;"><p>With the technical architecture in place, the next step was to provide the algorithm with the input categories necessary to capture the specific parameters of individual cases. To do this, we identified the variables that usually play a role in case discussions of clinical ethics committees. METHAD begins by asking general questions about the patient’s current health status to obtain the background against which any positive or negative consequences that the treatment may yield will be compared. The algorithm then proceeds to request the values for the variables that underlie Beauchamp and Childress’ principles of beneficence, non-maleficence, and autonomy. The questions are grouped accordingly. </p>
+</div>
+
+<script>
+function openModal() {
+  document.getElementById("myModal").style.display = "block";
+}
+
+function closeModal() {
+  document.getElementById("myModal").style.display = "none";
+}
+
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+}
+</script>
+
+<br>
+<div style="clear:both;"></div>
+<br>
+<a name="dataset"><h2>Dataset</h2></a>
+<div style="float: left;" id="piechart"></div>
+<div>
+   <p>Algorithms must be trained before they function properly. For supervised learning, one provides a model with a range of inputs and a corresponding set of predefined solutions, the so-called <i>labels</i>. The algorithm is then trained to learn a mapping that will most closely match the inputs in its dataset to the given answers.</p>
+     <p>When machine intelligence is used, for instance, to detect tumours in images of stained tissue slides taken from biopsies, pathologists label each image of the training dataset that is fed into the algorithm regarding whether it contains healthy or abnormal tissue. In the field of ethics, these labels are much more difficult to obtain. Ethically relevant situations rarely admit of ‘objectively correct’ solutions. What is morally right can be highly controversial. However, the supervised training of algorithms requires definite answers – in our case whether to recommend a certain medical intervention or to advise against it. How could one acquire this data?</p>
+     <p>Cases that were brought before clinical ethics committees emerged as the most suitable data source. While it is important to note that even the decisions that these committees have reached cannot be regarded as morally objective either, they still promise to deliver adequate training data for algorithms whose goal it is to replicate as closely as possible the recommendations that ethical advisory bodies typically issue.</p>
+     <p>To mitigate regional influences and national differences, we sourced the cases from larger collections in the literature. For every included case, we established the respective values of the parameters described in the foregoing section and fed them into the database. Simultaneously, we also entered the training label: whether or not human ethicists endorsed the intervention in question or rejected it. Thus, the algorithm gradually learned which constellations of input parameters are supposed to be associated with which ethical outcome.</p>
+ </div>
+
+<br>
+<div style="width:100%;float: left;text-align: justify;margin-top: 1%;">
+ <a name="performance"><h2>Performance</h2></a>
+ <br>
+  <p>Observing METHAD issuing its first recommendations was fascinating. In the majority of test cases, its suggestions were surprisingly well in accordance with the solutions obtained from the textbooks and from our ethicists.</p>
+	<p>Currently, the algorithm’s database consists of only 69 cases. To evaluate METHAD’s performance, we therefore employed stratified k-fold cross-validation, which is a method commonly used in machine learning for assessment in settings with limited data. METHAD’s recommendations were allowed to take any value between 0 (strongly opposed to the intervention) and 1 (strongly in favour of the intervention). We set a decision threshold of 0.5, which means that outputs ≥ 0.5 are counted as approval, and outputs < 0.5 signify that the intervention in question should not be undertaken.</p>
+	<p>When the algorithm’s predictions were compared to the textbook solutions and to our ethicists’ judgments, its outputs deviated from these labels on average by 0.11 in the training dataset and 0.23 in the test dataset. METHAD agreed with our ethicists in 92% of the cases in the training set and 75% of the cases in the test set. </p>
+	<p>To further refine the recommendations that the algorithm issues and to make them more robust, hundreds of novel training cases would have to be added. This, however, was not the aim of this first proof-of-concept study. The small example dataset served mostly as a vehicle to test whether the algorithm is, in principle, able to generate reasonable recommendations based on a decision process that is learned from examples.</p>
+</div>
+<div style="clear:both;"></div>
+<br>
+<h2>What Will the Future Bring?</h2>
+<div style="width:100%;float: left;text-align: justify;margin-top: 1%;">
+  <p>In this first feasibility study, we have proposed a way in which machine intelligence could be utilised to solve a range of real-life moral dilemmas that occur in clinical settings. METHAD offers a framework to systematically break down medical ethics cases into a set of quantifiable parameters and provides a novel approach to modelling their assessment in a computerised way.</p>
+	<p>That one can do something does not imply that one also should: the basic technological means to aid ethical decision-making now exist; but would it really be a good idea to implement such a technology in our clinics? Most people will find the prospect of autonomously driving vehicles taking morally relevant decisions in situations of unavoidable harm easier to accept than having judgments in clinical settings made by machine intelligence.</p>
+	<p>In the foreseeable future, ethical advisory systems will likely be employed only to support, not to stand in lieu of, human judgment. Algorithms like METHAD could, for example, be used for educational purposes such as training medical students and aspiring ethicists. One may also utilise them to provide patients and relatives with informal ethical guidance in cases that are not deemed important or controversial enough to be brought before clinical ethics committees.</p>
+	<p>Currently, the prospect of putting our patients’ fate into the hands of non-biological apparatuses is met with great resistance. Irrespective of whether or not this is a path that society will ultimately wish to pursue – it is crucial already to begin this discussion and carefully to consider the virtues and vices of the novel options that are becoming available to us.</p>
+</div>
+<div style="clear:both;"></div>
+<br>
+<a name="examples"><h2>Example Cases</h2></a>
+<br>
+  <div class="accordion">
+  <input id="toggle1" type="radio" class="accordion-toggle" name="toggle" />
+  <label for="toggle1">Case 1</label>
+  <section>
+    <p>A 10-year-old is suffering from leukemia. Seeing their child experience the strong side-effects that the therapy induces, the parents want all interventions halted. However, chemotherapy has proven to be highly effective and the child’s prognosis is very promising. METHAD’s analysis indicates that continuing the therapy would very likely be in the young patient’s best interest, which is in accordance with human ethicists’ judgment (denoted as “human-specified solution”).</p>
+        <embed style="border: none;" src="iframe_figures/case_1.html" dpi="300" width="100%" height="100%" />
+  </section>
+</div>
+
+<div class="accordion">
+  <input id="toggle2" type="radio" class="accordion-toggle" name="toggle" />
+  <label for="toggle2">Case 2</label>
+  <section>
+    <p>A patient with limited decisional capacity requests a medical intervention that is unlikely to result in an extension of her life. There is a strong indication, however, that the treatment would reduce the patient’s quality of life. Her risk preference cannot be established. METHAD begins by analyzing the patient’s wishes, but, after factoring in the intervention’s medical futility, ultimately recommends against proceeding. </p>
+        <embed style="border: none;" src="iframe_figures/case_2.html" dpi="300" width="100%" height="100%" />
+  </section>
+</div>
+
+<div class="accordion">
+  <input id="toggle3" type="radio" class="accordion-toggle" name="toggle" />
+  <label for="toggle3">Case 3</label>
+  <section>
+    <p>A competent patient refuses a life-saving treatment. METHAD calculates that the medical benefits for the patient would be enormous – visible as an initial spike – and that the intervention would come with only minimal risks, but, after figuring in that the refusal occurred with full decisional capacity, eventually recommends refraining from intervening.</p>
+        <embed style="border: none;" src="iframe_figures/case_3.html" dpi="300" width="100%" height="100%" />
+  </section>
+</div>
+
+<footer style="margin-top: 2%; font-size: small;">
+  <p>This work was funded by the Technical University of Munich—Institute for Ethics in Artificial Intelligence (IEAI).</p>
+</footer> 
+
+<script>
+  // Get the modal
+  var modal = document.getElementById("myModalIm");
+  
+  // Get the image and insert it inside the modal - use its "alt" text as a caption
+  var img = document.getElementById("myImg");
+  var modalImg = document.getElementById("img01");
+  var captionText = document.getElementById("caption");
+  img.onclick = function(){
+    modal.style.display = "block";
+    modalImg.src = this.src;
+    captionText.innerHTML = this.alt;
+  }
+  
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("closeIm")[0];
+  
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function() { 
+    modal.style.display = "none";
+  }
+  </script>
+
+<script type="text/javascript">
+  // Load google charts
+  google.charts.load('current', {'packages':['corechart']});
+  google.charts.setOnLoadCallback(drawChart);
+  
+  // Draw the chart and set the chart values
+  function drawChart() {
+    var data = google.visualization.arrayToDataTable([
+    ['Category', 'Number of Cases'],
+    ['Withholding or withdrawal of treatment', 14],
+    ['Advance directives and consent in adults', 13],
+    ['Consent in minors', 11],
+    ['Patient\'s refusal of treatment', 11],
+    ['Request for provision of futile treatment', 9],
+    ['Beginning of life, pregnancy and abortion', 8],
+    ['Mental health', 3]
+  ]);
+  
+    // Optional; add a title and set the width and height of the chart
+    var options = {width: $(window).width()*0.5, pieSliceText: 'value',
+      chartArea: {left: 0, right:20, top: 10, bottom:0},
+      colors: ['#D55E00', '#0072B2', '#CC79A7', '#F0E442', '#009E73', '#56B4E9', '#E69F00']}
+  
+    // Display the chart inside the <div> element with id="piechart"
+    var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+    chart.draw(data, options);
+  }
+  </script>
+  
+<script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-1b93190375e9ccc259df3a57c1abc0e64599724ae30d7ea4c6877eb615f89387.js"></script>
+  <script  src="https://cdpn.io/cpe/boomboom/pen.js?key=pen.js-b4395a4f-db33-74c2-beeb-aab739de5280" crossorigin></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+</body>
+
+</html>
